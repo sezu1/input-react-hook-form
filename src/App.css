@@ -2,6 +2,35 @@
   text-align: center;
 }
 
+input{
+  outline: none;
+}
+.form{
+  width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form label{
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form button{
+  width: 34%;
+  margin: 20px auto;
+}
+
+.form small{
+  color: green;
+}
+
+.errorBorder{
+  border: 1px solid red;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
