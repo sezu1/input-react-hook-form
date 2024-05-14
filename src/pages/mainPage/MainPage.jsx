@@ -3,6 +3,7 @@ import {useForm} from 'react-hook-form';
 import axios from 'axios';
 
 
+
 export function MainPage() {
 
     const {register,
@@ -15,8 +16,10 @@ export function MainPage() {
 
     const submit = (values) => {
         let url = 'https://jsonplaceholder.typicode.com/users'
-        axios.post (url, JSON.stringify(values))
-            .then(response => console.log(response.data))
+        axios.post (url, values)
+            .then(response => response.data)
+        console.log(getValues())
+        reset()
     }
 
     return (
@@ -48,7 +51,7 @@ export function MainPage() {
 
                 <label>
                     <p>phone</p>
-                    <input type="tel" {...register('phone', {minLength: 5})}/>
+                    <input type="text" {...register('phone', {minLength: 1})}/>
                 </label>
 
                 <label>
@@ -56,20 +59,7 @@ export function MainPage() {
                     <input type="text" {...register('website')}/>
                 </label>
 
-                <button type='button'
-                        onClick={() => {
-                            const getMyObj = getValues()//obj
-                            console.log(getMyObj)
-                            submit(getMyObj)//funciya submit otpravila object
-
-                            reset ({
-                                name: '',
-                                username: '',
-                                email: '',
-                                phone: '',
-                                website: ''
-                            })
-                        }}>добавить</button>
+                <button>добавить</button>
 
             </form>
         </div>
